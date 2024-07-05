@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBMP Complaint Lodging</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div id="complaintLodgingWindow" class="window fade-in">
+        <h2 class="center-title">Complaint Lodging Window</h2>
+        <p id="feedbackMessage" class="center-title" style="display: none; color: green;">Your complaint has been recorded.</p>
+        <button id="newComplaintButton" style="display: none;" onclick="navigateToLodging()">Submit Another Complaint</button>
+        <form id="complaintForm" onsubmit="submitComplaint(event)">
+            <label for="department">Department Name:</label>
+            <select id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="BBMP">BBMP - Roads, Solid Waste Management, Public Health, Street Lighting</option>
+                <option value="BESCOM">BESCOM - Electricity and Electrical Issues</option>
+                <option value="BWSSB">BWSSB - Water Supply and Sewerage Issues</option>
+                <option value="BMTC">BMTC - Public Bus Transport Issues</option>
+            </select>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" placeholder="Provide a detailed description of the complaint." required></textarea>
+            <label for="dateOfLodging">Date of Lodging:</label>
+            <input type="date" id="dateOfLodging" name="dateOfLodging" required>
+            <label for="address">Address/Location:</label>
+            <input type="text" id="address" name="address" placeholder="Enter the address or location related to the complaint." required>
+            <label for="fileAttachment">File Attachment (Optional):</label>
+            <input type="file" id="fileAttachment" name="fileAttachment">
+            <label for="suggestion">Suggestion (Optional):</label>
+            <input type="text" id="suggestion" name="suggestion" placeholder="Any suggestions?">
+            <button type="submit">Submit Complaint</button>
+        </form>
+    </div>
+
+    <div id="complaintConfirmationWindow" class="window">
+        <h2 class="center-title">Complaint Confirmation</h2>
+        <button onclick="navigateToStatus()">Check Status</button>
+        <button onclick="navigateToLodging()">Back to Lodging</button>
+    </div>
+
+    <div id="complaintStatusWindow" class="window">
+        <h2 class="center-title">Complaint Status</h2>
+        <p id="statusMessage" style="color: green; display: none;">Complaint lodged successfully.</p>
+        <p id="complaintStatus">Not Opened</p>
+        <button onclick="checkStatus()">Check Completion</button>
+        <button onclick="navigateToLodging()">Back to Lodging</button>
+    </div>
+
+    <div id="feedbackForm" class="window">
+        <h2 class="center-title">Feedback Form</h2>
+        <form id="feedback" onsubmit="submitFeedback()">
+            <label for="feedbackText">Your Feedback:</label>
+            <textarea id="feedbackText" name="feedbackText" placeholder="Enter your feedback here." required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <button onclick="navigateToLodging()">Back to Lodging</button>
+    </div>
+</body>
+</html>
