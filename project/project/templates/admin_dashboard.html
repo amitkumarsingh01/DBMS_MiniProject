@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Admin Dashboard</h2>
+<h3>Users</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.email }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.phone }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Staff</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for staff_member in staff %}
+        <tr>
+            <td>{{ staff_member.email }}</td>
+            <td>{{ staff_member.name }}</td>
+            <td>{{ staff_member.phone }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>All Queries</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Department</th>
+            <th>Issue</th>
+            <th>Suggestion</th>
+            <th>Date</th>
+            <th>File</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Assign to Staff</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for query in queries %}
+        <tr style="background-color: {{ 'lightgreen' if query.status == 'Assigned' else 'lightcoral' }};">
+            <td>{{ query.department }}</td>
+            <td>{{ query.issue }}</td>
+            <td>{{ query.suggestion }}</td>
+            <td>{{ query.date }}</td>
+            <td>
+                {% if query.file_path %}
+                <a href="{{ url_for('uploaded_file', filename=query.file_path) }}">View</a>
+                {% endif %}
+            </td>
+            <td>{{ query.location }}</td>
+            <td>{{ query.status }}</td>
+            <td>
+                <form action="{{ url_for('allocate_work') }}" method="post">
+                    <input type="hidden" name="query_id" value="{{ query.id }}">
+                    <select name="staff_id">
+                        {% for staff_member in staff %}
+                        <option value="{{ staff_member.id }}">{{ staff_member.name }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit">Allocate</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
