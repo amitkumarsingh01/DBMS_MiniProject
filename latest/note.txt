@@ -1,0 +1,5 @@
+pip install flask flask_sqlalchemy werkzeug
+pip install Flask-Migrate
+pip install Flask-Migrate Flask-Script
+flask db init
+flask db migrate -m "Add assigned_to column to Query model" 
