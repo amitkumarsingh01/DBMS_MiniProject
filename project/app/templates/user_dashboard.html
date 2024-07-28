@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard">
+    <h2>User Dashboard</h2>
+    <a href="{{ url_for('query') }}" class="btn">Submit Query</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Department</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for query in queries %}
+            <tr>
+                <td>{{ query.department }}</td>
+                <td>{{ query.description }}</td>
+                <td>{{ query.date_posted }}</td>
+                <td>{{ query.status }}</td>
+                <td>
+                    {% if query.status == 'Resolved' %}
+                    <a href="{{ url_for('feedback', query_id=query.id) }}" class="btn">Give Feedback</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-container">
+    <h2>Submit Query</h2>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.department.label }}<br>
+            {{ form.department() }}
+        </div>
+        <div>
+            {{ form.description.label }}<br>
+            {{ form.description(cols=40, rows=5) }}
+        </div>
+        <div>
+            {{ form.suggestion.label }}<br>
+            {{ form.suggestion(cols=40, rows=3) }}
+        </div>
+        <div>
+            {{ form.image_file.label }}<br>
+            {{ form.image_file() }}
+        </div>
+        <div>
+            {{ form.geolocation.label }}<br>
+            {{ form.geolocation(size=32) }}
+        </div>
+        <div>
+            {{ form.submit(class_="btn") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard">
+    <h2>Staff Dashboard</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Department</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for query in queries %}
+            <tr>
+                <td>{{ query.department }}</td>
+                <td>{{ query.description }}</td>
+                <td>{{ query.date_posted }}</td>
+                <td>
+                    <!-- Mark as Done -->
+                    <a href="#" class="btn">Done</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

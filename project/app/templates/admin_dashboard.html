@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard">
+    <h2>Admin Dashboard</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Department</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for query in queries %}
+            <tr>
+                <td>{{ query.user.name }} ({{ query.user.phone_number }})</td>
+                <td>{{ query.department }}</td>
+                <td>{{ query.description }}</td>
+                <td>{{ query.date_posted }}</td>
+                <td>
+                    <!-- Approve/Allocate to Staff -->
+                    <a href="#" class="btn">Approve</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
