@@ -16,7 +16,7 @@ def register(name, email, password):
     st.success("You have successfully registered. Please login.")
 
 # Streamlit UI
-st.title("Query Management System")
+st.title("BBMP Management System")
 
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
@@ -37,7 +37,7 @@ menu = ["Home", "Login", "Register", "Admin"]
 choice = st.sidebar.selectbox("Menu", menu)
 
 if choice == "Home":
-    st.subheader("Welcome to the Query Management System")
+    st.subheader("Welcome to the BBMP Complaint Lodger Web Page")
 
 elif choice == "Login":
     st.subheader("Login Section")
@@ -82,7 +82,7 @@ if st.session_state.logged_in:
 
         if st.session_state.show_form:
             st.subheader("New Query Form")
-            department = st.selectbox("Department Name", [1, 2, 3, 4])
+            department = st.selectbox("Department Name", [1,2,3,4])
             description = st.text_area("Description")
             date_of_lodging = st.date_input("Date of Lodging", datetime.date.today())
             address = st.text_input("Address/Location")
