@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Submit a Query</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.department.label }} {{ form.department() }}
+        </div>
+        <div>
+            {{ form.description.label }} {{ form.description() }}
+        </div>
+        <div>
+            {{ form.date.label }} {{ form.date() }}
+        </div>
+        <div>
+            {{ form.suggestion.label }} {{ form.suggestion() }}
+        </div>
+        <div>
+            {{ form.image.label }} {{ form.image() }}
+        </div>
+        <div>
+            {{ form.geolocation.label }} {{ form.geolocation() }}
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>

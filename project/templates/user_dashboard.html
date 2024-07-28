@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>User Dashboard</h1>
+    <div>
+        <a href="{{ url_for('query_form') }}">Submit a Query</a>
+    </div>
+    <h2>Previous Queries</h2>
+    <ul>
+        {% for query in queries %}
+            <li>{{ query.description }} - {{ query.status }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

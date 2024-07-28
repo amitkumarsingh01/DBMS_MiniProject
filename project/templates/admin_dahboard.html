@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <h2>User Queries</h2>
+    <ul>
+        {% for query in queries %}
+            <li>{{ query.user.name }}: {{ query.description }} - {{ query.status }}
+                <form method="POST" action="{{ url_for('approve_query', query_id=query.id) }}">
+                    <input type="submit" value="Approve">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>User Feedbacks</h2>
+    <ul>
+        {% for feedback in feedbacks %}
+            <li>{{ feedback.user.name }}: {{ feedback.suggestion }} - {{ feedback.rating }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
