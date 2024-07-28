@@ -34,6 +34,9 @@ class Query(db.Model):
 def index():
     return render_template('login.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -76,6 +79,8 @@ def logout():
     session.pop('user_id', None)
     session.pop('user_type', None)
     return redirect(url_for('index'))
+
+
 
 @app.route('/user_dashboard')
 def user_dashboard():
@@ -142,6 +147,8 @@ def allocate_work():
     db.session.commit()
     flash("Work allocated successfully!")
     return redirect(url_for('admin_dashboard'))
+
+
 
 if __name__ == '__main__':
     with app.app_context():
