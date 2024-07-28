@@ -9,12 +9,16 @@
 <body>
     <header>
         <nav>
-            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('about') }}">About US</a>
+            <a href="{{ url_for('index') }}">Login</a>
             {% if session['user_id'] %}
                 <a href="{{ url_for('logout') }}">Logout</a>
             {% endif %}
         </nav>
     </header>
+    <h1>
+        Welcome To BBMP Service
+    </h1>
     <main>
         {% with messages = get_flashed_messages() %}
             {% if messages %}

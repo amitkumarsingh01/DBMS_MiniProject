@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="about-container">
+    <div class="about-images">
+        <img src="{{ url_for('static', filename='bbmp.jpg') }}" alt="BBMP" class="about-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Bbmp..jpg" alt="BBMP" class="about-image">
+    </div>
+    <div class="about-content">
+        <h1>About US</h1>
+        <p>
+            The Bruhat Bengaluru Mahanagara Palike (BBMP) is the administrative body responsible for the civic and infrastructural assets of the Greater Bangalore metropolitan area. It oversees various essential services such as health, education, public infrastructure, and community services, ensuring a better quality of life for the residents of Bangalore.
+        </p>
+        <div class="about-details">
+            <h2>BBMP Office</h2>
+            <p>
+                The BBMP office serves as the headquarters for all civic administration activities in Bangalore.
+            </p>
+            <h2>Civic Infrastructure</h2>
+            <p>
+                BBMP is dedicated to developing and maintaining robust civic infrastructure across the city.
+            </p>
+            <h2>Public Services</h2>
+            <p>
+                Ensuring the delivery of essential public services is a core function of BBMP.
+            </p>
+        </div>
+        <p>This project was created by students of DSCE.</p>
+    </div>
+</div>
+{% endblock %}
