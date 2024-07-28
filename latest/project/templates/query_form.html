@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Submit Query</h2>
+<form action="{{ url_for('submit_query') }}" method="post" enctype="multipart/form-data">
+    <label for="department">Department:</label>
+    <select id="department" name="department" required>
+        <option value="1">Department 1</option>
+        <option value="2">Department 2</option>
+        <option value="3">Department 3</option>
+        <option value="4">Department 4</option>
+    </select>
+
+    <label for="issue">Issue:</label>
+    <textarea id="issue" name="issue" required></textarea>
+
+    <label for="suggestion">Suggestion:</label>
+    <textarea id="suggestion" name="suggestion"></textarea>
+
+    <label for="file">Upload File:</label>
+    <input type="file" id="file" name="file">
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" required>
+
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
